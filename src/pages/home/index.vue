@@ -11,8 +11,8 @@
 
 <style lang="less" scoped>
 .div-container {
-  height: 80%;
-  background: #fff;
+  height: 100vh;
+  background: #999999;
 
   display: flex;
   justify-content: flex-start;
@@ -20,16 +20,19 @@
 }
 
 .div-left {
+  height: 100%;
   background: red;
   width: 300px;
 }
 
 .div-operator {
+  height: 100%;
   background: green;
   flex-grow: 1;
 }
 
 .div-right {
+  height: 100%;
   background: blue;
   width: 300px;
 }
