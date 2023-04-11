@@ -3,7 +3,7 @@ import home from '../pages/home/index.vue'
 
 const routes: RouteRecordRaw[] = [
     {
-        path: '/home',
+        path: '/',
         name: 'Home',
         component: home,
     }
