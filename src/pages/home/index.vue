@@ -20,18 +20,22 @@
 
   &-left {
     height: 100%;
-    background: red;
+    background: white;
     width: 300px;
+    padding: 10px;
   }
+
   &-middle {
     height: 100%;
-    background: green;
+    padding: 10px;
     flex-grow: 1;
   }
+
   &-right {
     height: 100%;
-    background: blue;
+    background: white;
     width: 300px;
+    padding: 10px;
   }
 }
 </style>
