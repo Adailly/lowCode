@@ -1,12 +1,19 @@
 <template>
   <div class="div-home">
-    <div class="div-home-left"></div>
+    <div class="div-home-left">
+      <t-button @click="onOperator">简单工厂</t-button>
+    </div>
     <div class="div-home-middle"></div>
     <div class="div-home-right"></div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { OperatorFactoryAction } from "../../other";
+
+const onOperator = () => {
+  OperatorFactoryAction();
+};
 </script>
 
 <style lang="less" scoped>
