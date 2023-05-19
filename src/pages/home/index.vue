@@ -9,10 +9,11 @@
 </template>
 
 <script setup lang="ts">
-import { OperatorFactoryAction } from "../../other";
+import { OperatorFactoryAction, StrategyAction } from "../../other";
 
 const onOperator = () => {
-  OperatorFactoryAction();
+  // OperatorFactoryAction();
+  StrategyAction();
 };
 </script>
 
