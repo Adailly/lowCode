@@ -6,7 +6,7 @@
     <div class="div-layout-body">
       <HomeVue></HomeVue>
     </div>
-    <div class="div-layout-footer">footer</div>
+    <!-- <div class="div-layout-footer">footer</div> -->
   </div>
 </template>
 
@@ -22,6 +22,7 @@ import HomeVue from "../home/index.vue";
 
   &-header {
     padding: 8px 10px;
+    border-bottom: 1px #e6e6e6 solid;
   }
 
   &-body {
@@ -30,6 +31,7 @@ import HomeVue from "../home/index.vue";
 
   &-footer {
     padding: 8px 10px;
+    border-top: 1px #e6e6e6 solid;
   }
 }
 </style>
