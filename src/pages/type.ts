@@ -1,10 +1,3 @@
-// 模型对象
-export interface CodeType {
-  url: string;
-  title: string;
-  type: string;
-}
-
 // 导航模型
 export interface NavigationObject {
   title: string;
@@ -13,6 +6,7 @@ export interface NavigationObject {
 
 // 组件item
 export interface NavigationListItem {
+  id?: string;
   label: string;
   iconName: string;
   typeName: string;
@@ -31,4 +25,19 @@ export interface PropertyObject {
   name: string;
   type: string;
   default: StrOrNum;
+}
+
+// 页面模型
+export interface VPageNode {
+  id?: string;
+  name: string;
+  children: VTagNode[];
+}
+
+export interface VTagNode {
+  id?: string;
+  label: string;
+  type: string;
+  props: PropsObject;
+  children: VTagNode[];
 }

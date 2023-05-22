@@ -236,20 +236,20 @@ export const navigations: NavigationObject[] = [
     list: baseList,
   },
   {
-    title: "布局组件",
-    list: layoutList,
-  },
-  {
-    title: "导航组件",
-    list: natigationList,
-  },
-  {
     title: "输入组件",
     list: inputList,
   },
   {
     title: "数据展示组件",
     list: dataList,
+  },
+  {
+    title: "布局组件",
+    list: layoutList,
+  },
+  {
+    title: "导航组件",
+    list: natigationList,
   },
   {
     title: "消息提醒组件",
