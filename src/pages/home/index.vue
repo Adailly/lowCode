@@ -43,6 +43,9 @@
                 </t-collapse-panel>
               </t-collapse>
             </div>
+            <div v-else-if="currentTab === 'outer'">
+              <t-button @click="onClickAction">设计模式</t-button>
+            </div>
           </div>
         </t-tab-panel>
       </t-tabs>
@@ -114,6 +117,12 @@ import { NavigationListItem, PropsObject, VPageNode, VTagNode } from "../type";
 import { cloneDeep, keys, pullAt } from "lodash";
 import { getRandomCode } from "../../util/tools";
 import { DialogPlugin } from "tdesign-vue-next";
+
+import { FineryAction } from "../../other/index";
+
+const onClickAction = () => {
+  FineryAction();
+};
 
 const currentTab = ref("inter");
 const leftTabsValue = tabsValue;
