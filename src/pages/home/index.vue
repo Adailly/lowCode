@@ -61,8 +61,9 @@
             @click="onClickNode(index, element)"
           >
             <div class="page-node-item flex-between">
-              <Component :is="element.type"></Component>
-              <t-button theme="outline" @click="deleteTagNode(index)">
+              <Component :is="element.type" :content="findPropsValue.name">
+              </Component>
+              <t-button variant="outline" @click="deleteTagNode(index)">
                 <template #icon>
                   <t-icon name="delete" color="red" />
                 </template>
@@ -73,7 +74,34 @@
       </draggable>
     </div>
     <div class="div-home-right">
-      <h4>属性设置:</h4>
+      <t-tabs v-model="editTab" theme="card">
+        <t-tab-panel
+          v-for="(item, index) in rightTabsValue"
+          :key="index"
+          :label="item.label"
+          :value="item.value"
+        >
+          <div class="div-right-edit">
+            <div v-if="editTab === 'property'">
+              <h4>属性编辑</h4>
+              <div v-for="key in Object.keys(selectData.props)">
+                <div>{{ selectData.props[key].name }}:</div>
+                <Component
+                  :is="selectData.props[key].t_type"
+                  v-model="selectData.props[key].default"
+                >
+                </Component>
+              </div>
+            </div>
+            <div v-else-if="editTab === 'style'">
+              <h4>样式编辑</h4>
+            </div>
+            <div v-else>
+              <h4>事件编辑</h4>
+            </div>
+          </div>
+        </t-tab-panel>
+      </t-tabs>
     </div>
   </div>
 </template>
@@ -81,9 +109,9 @@
 <script setup lang="ts">
 import { reactive, ref } from "vue";
 import draggable from "vuedraggable";
-import { tabsValue, navigations } from "./constants";
-import { NavigationListItem, VPageNode, VTagNode } from "../type";
-import { cloneDeep, pullAt } from "lodash";
+import { tabsValue, navigations, editTabsValue } from "./constants";
+import { NavigationListItem, PropsObject, VPageNode, VTagNode } from "../type";
+import { cloneDeep, keys, pullAt } from "lodash";
 import { getRandomCode } from "../../util/tools";
 import { DialogPlugin } from "tdesign-vue-next";
 
@@ -91,12 +119,17 @@ const currentTab = ref("inter");
 const leftTabsValue = tabsValue;
 const leftData = navigations;
 
+const editTab = ref("property");
+const rightTabsValue = editTabsValue;
+
 // 选中的组件
-const selectNode = ref<VTagNode>();
 const selectData = reactive({
   index: 0,
-  node: {},
+  node: new VTagNode(),
+  props: new PropsObject(),
 });
+const selectPropsValue = reactive<{ [key: string]: any }>({});
+
 // 初始化页面对象
 const pageNodeModel = ref<VPageNode>({
   id: getRandomCode(),
@@ -106,7 +139,6 @@ const pageNodeModel = ref<VPageNode>({
 
 // 复制组件对象
 const onCloneHandle = (element: NavigationListItem) => {
-  console.log(element);
   const data: NavigationListItem = cloneDeep(element);
   const tagNode: VTagNode = {
     id: getRandomCode(),
@@ -118,11 +150,23 @@ const onCloneHandle = (element: NavigationListItem) => {
   pageNodeModel.value.children.push(tagNode);
   selectData.node = tagNode;
   selectData.index = pageNodeModel.value.children.length - 1;
+  selectData.props = tagNode.props;
+  console.log(selectData.props);
+  findPropsValue();
 };
 // 点击选中的node
 const onClickNode = (index: number, node: VTagNode) => {
   selectData.index = index;
   selectData.node = node;
+  selectData.props = node.props;
+  console.log(selectData.props);
+  findPropsValue();
+};
+const findPropsValue = () => {
+  Object.keys(selectData.props).forEach((key) => {
+    selectPropsValue[key] = selectData.props[key].default;
+  });
+  console.log(selectPropsValue.name);
 };
 const onSelectClass = (index: number) => {
   if (selectData.index === index) {
@@ -177,7 +221,7 @@ const deleteTagNode = (index: number) => {
     height: 100%;
     background: white;
     width: 300px;
-    padding: 10px;
+    padding: 0px;
   }
 }
 
@@ -214,6 +258,9 @@ const deleteTagNode = (index: number) => {
     width: 100%;
     margin-bottom: 8px;
   }
+}
+.div-right-edit {
+  padding: 8px;
 }
 .page-node-select {
   border: 1px blue solid;

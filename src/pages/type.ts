@@ -14,27 +14,29 @@ export interface NavigationListItem {
 }
 
 // 传递的基础属性
-export interface PropsObject {
+export class PropsObject {
   [key: string]: PropertyObject;
 }
 
 type StrOrNum = string | number;
 
 // 属性描述
-export interface PropertyObject {
+export class PropertyObject {
   name: string;
   type: string;
   default: StrOrNum;
+  t_type: string;
+  option?: any; // 多选数组类
 }
 
 // 页面模型
-export interface VPageNode {
+export class VPageNode {
   id?: string;
   name: string;
   children: VTagNode[];
 }
 
-export interface VTagNode {
+export class VTagNode {
   id?: string;
   label: string;
   type: string;

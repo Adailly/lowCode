@@ -26,15 +26,23 @@ const baseList: NavigationListItem[] = [
     iconName: "app",
     typeName: "t-button",
     props: {
+      name: {
+        name: "名称",
+        type: "string",
+        default: "button",
+        t_type: "t-input",
+      },
       width: {
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -47,11 +55,13 @@ const baseList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -64,11 +74,13 @@ const baseList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -83,11 +95,13 @@ const layoutList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -100,11 +114,13 @@ const layoutList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -117,11 +133,13 @@ const layoutList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -134,11 +152,13 @@ const layoutList: NavigationListItem[] = [
         name: "宽度",
         type: "number",
         default: 40,
+        t_type: "t-input",
       },
       height: {
         name: "高度",
         type: "number",
         default: 20,
+        t_type: "t-input",
       },
     },
   },
@@ -254,5 +274,20 @@ export const navigations: NavigationObject[] = [
   {
     title: "消息提醒组件",
     list: msgList,
+  },
+];
+
+export const editTabsValue = [
+  {
+    label: "属性设置",
+    value: "property",
+  },
+  {
+    label: "样式设置",
+    value: "style",
+  },
+  {
+    label: "事件设置",
+    value: "event",
   },
 ];
