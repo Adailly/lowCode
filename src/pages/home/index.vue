@@ -118,10 +118,10 @@ import { cloneDeep, keys, pullAt } from "lodash";
 import { getRandomCode } from "../../util/tools";
 import { DialogPlugin } from "tdesign-vue-next";
 
-import { FineryAction } from "../../other/index";
+import { ProxyAction } from "../../other/index";
 
 const onClickAction = () => {
-  FineryAction();
+  ProxyAction();
 };
 
 const currentTab = ref("inter");

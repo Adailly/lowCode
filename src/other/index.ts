@@ -7,6 +7,7 @@ import {
   TShirt,
   Shoe,
 } from "./DecoratorModule";
+import { ReceiverObject, Proxy, Prusuit } from "./ProxyModules";
 
 // 调用工厂方法
 export function OperatorFactoryAction() {
@@ -39,4 +40,13 @@ export function FineryAction() {
   const s = new Shoe("");
   s.decorator(t);
   s.show();
+}
+
+export function ProxyAction() {
+  const receiver: ReceiverObject = new ReceiverObject("小芳");
+  const prusuit: Prusuit = new Prusuit(receiver);
+  const proxy: Proxy = new Proxy(prusuit);
+  proxy.sendOne();
+  proxy.sendTwo();
+  proxy.sendThree();
 }
