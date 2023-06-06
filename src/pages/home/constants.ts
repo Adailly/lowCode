@@ -3,291 +3,310 @@ import {
   NavigationListItem,
   PropsObject,
   PropertyObject,
-} from "../type";
+} from '../type'
 
 export const tabsValue = [
   {
-    label: "内置组件",
-    value: "inter",
+    label: '内置组件',
+    value: 'inter',
   },
   {
-    label: "业务组件",
-    value: "bussiness",
+    label: '业务组件',
+    value: 'bussiness',
   },
   {
-    label: "外部组件",
-    value: "outer",
+    label: '外部组件',
+    value: 'outer',
   },
-];
+]
 
 const baseList: NavigationListItem[] = [
   {
-    label: "按钮",
-    iconName: "app",
-    typeName: "t-button",
+    label: '按钮',
+    iconName: 'app',
+    typeName: 't-button',
     props: {
       name: {
-        name: "名称",
-        type: "string",
-        default: "button",
-        t_type: "t-input",
+        name: '名称',
+        type: 'string',
+        default: 'button',
+        t_type: 't-input',
       },
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
   {
-    label: "图标",
-    iconName: "app",
-    typeName: "t-button",
+    label: '图标',
+    iconName: 'app',
+    typeName: 't-button',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
   {
-    label: "链接",
-    iconName: "link",
-    typeName: "t-link",
+    label: '链接',
+    iconName: 'link',
+    typeName: 't-link',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
-];
+]
 const layoutList: NavigationListItem[] = [
   {
-    label: "分割线",
-    iconName: "app",
-    typeName: "t-divider",
+    label: '分割线',
+    iconName: 'app',
+    typeName: 't-divider',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
   {
-    label: "栅格",
-    iconName: "app",
-    typeName: "t-grid",
+    label: '栅格',
+    iconName: 'app',
+    typeName: 't-grid',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
   {
-    label: "布局",
-    iconName: "app",
-    typeName: "t-layout",
+    label: '布局',
+    iconName: 'app',
+    typeName: 't-layout',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
   {
-    label: "间隔",
-    iconName: "app",
-    typeName: "t-space",
+    label: '间隔',
+    iconName: 'app',
+    typeName: 't-space',
     props: {
       width: {
-        name: "宽度",
-        type: "number",
+        name: '宽度',
+        type: 'number',
         default: 40,
-        t_type: "t-input",
+        t_type: 't-input',
       },
       height: {
-        name: "高度",
-        type: "number",
+        name: '高度',
+        type: 'number',
         default: 20,
-        t_type: "t-input",
+        t_type: 't-input',
       },
     },
   },
-];
+]
 const natigationList: NavigationListItem[] = [
   {
-    label: "固钉",
-    iconName: "app",
-    typeName: "t-affix",
+    label: '固钉',
+    iconName: 'app',
+    typeName: 't-affix',
     props: {},
   },
   {
-    label: "锚点",
-    iconName: "app",
-    typeName: "t-anchor",
+    label: '锚点',
+    iconName: 'app',
+    typeName: 't-anchor',
     props: {},
   },
   {
-    label: "回到顶部",
-    iconName: "app",
-    typeName: "t-backtop",
+    label: '回到顶部',
+    iconName: 'app',
+    typeName: 't-backtop',
     props: {},
   },
   {
-    label: "面包屑",
-    iconName: "app",
-    typeName: "t-breadcrumb",
+    label: '面包屑',
+    iconName: 'app',
+    typeName: 't-breadcrumb',
     props: {},
   },
   {
-    label: "下拉菜单",
-    iconName: "app",
-    typeName: "t-dropdown",
+    label: '下拉菜单',
+    iconName: 'app',
+    typeName: 't-dropdown',
     props: {},
   },
   {
-    label: "导航菜单",
-    iconName: "app",
-    typeName: "t-menu",
+    label: '导航菜单',
+    iconName: 'app',
+    typeName: 't-menu',
     props: {},
   },
   {
-    label: "分页",
-    iconName: "app",
-    typeName: "t-pagination",
+    label: '分页',
+    iconName: 'app',
+    typeName: 't-pagination',
     props: {},
   },
   {
-    label: "步骤条",
-    iconName: "app",
-    typeName: "t-steps",
+    label: '步骤条',
+    iconName: 'app',
+    typeName: 't-steps',
     props: {},
   },
   {
-    label: "侧边栏",
-    iconName: "app",
-    typeName: "t-sticktool",
+    label: '侧边栏',
+    iconName: 'app',
+    typeName: 't-sticktool',
     props: {},
   },
   {
-    label: "选项卡",
-    iconName: "app",
-    typeName: "t-tabs",
+    label: '选项卡',
+    iconName: 'app',
+    typeName: 't-tabs',
     props: {},
   },
-];
+]
 const inputList: NavigationListItem[] = [
   {
-    label: "输入框",
-    iconName: "app",
-    typeName: "t-input",
-    props: {},
+    label: '输入框',
+    iconName: 'app',
+    typeName: 't-input',
+    props: {
+      name: {
+        name: '输入框',
+        type: 'string',
+        default: 'input',
+        t_type: 't-input',
+      },
+      width: {
+        name: '宽度',
+        type: 'number',
+        default: 100,
+        t_type: 't-input',
+      },
+      height: {
+        name: '高度',
+        type: 'number',
+        default: 30,
+        t_type: 't-input',
+      },
+    },
   },
-];
+]
 const dataList: NavigationListItem[] = [
   {
-    label: "图片",
-    iconName: "app",
-    typeName: "t-image",
+    label: '图片',
+    iconName: 'app',
+    typeName: 't-image',
     props: {},
   },
-];
+]
 const msgList: NavigationListItem[] = [
   {
-    label: "对话框",
-    iconName: "app",
-    typeName: "t-dialog",
+    label: '对话框',
+    iconName: 'app',
+    typeName: 't-dialog',
     props: {},
   },
-];
+]
 
 export const navigations: NavigationObject[] = [
   {
-    title: "基础组件",
+    title: '基础组件',
     list: baseList,
   },
   {
-    title: "输入组件",
+    title: '输入组件',
     list: inputList,
   },
   {
-    title: "数据展示组件",
+    title: '数据展示组件',
     list: dataList,
   },
   {
-    title: "布局组件",
+    title: '布局组件',
     list: layoutList,
   },
   {
-    title: "导航组件",
+    title: '导航组件',
     list: natigationList,
   },
   {
-    title: "消息提醒组件",
+    title: '消息提醒组件',
     list: msgList,
   },
-];
+]
 
 export const editTabsValue = [
   {
-    label: "属性设置",
-    value: "property",
+    label: '属性设置',
+    value: 'property',
   },
   {
-    label: "样式设置",
-    value: "style",
+    label: '样式设置',
+    value: 'style',
   },
   {
-    label: "事件设置",
-    value: "event",
+    label: '事件设置',
+    value: 'event',
   },
-];
+]
