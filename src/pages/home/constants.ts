@@ -24,7 +24,7 @@ const baseList: NavigationListItem[] = [
   {
     label: '按钮',
     iconName: 'app',
-    typeName: 't-button',
+    typeName: 'EButton',
     props: {
       name: {
         name: '名称',

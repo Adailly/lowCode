@@ -64,8 +64,7 @@
             @click="onClickNode(index, element)"
           >
             <div class="page-node-item flex-between">
-              <Component :is="element.type" :content="findPropsValue.name">
-              </Component>
+              <Component :is="element.type" :data="element.props"> </Component>
               <t-button variant="outline" @click="deleteTagNode(index)">
                 <template #icon>
                   <t-icon name="delete" color="red" />
@@ -110,95 +109,96 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref } from "vue";
-import draggable from "vuedraggable";
-import { tabsValue, navigations, editTabsValue } from "./constants";
-import { NavigationListItem, PropsObject, VPageNode, VTagNode } from "../type";
-import { cloneDeep, keys, pullAt } from "lodash";
-import { getRandomCode } from "../../util/tools";
-import { DialogPlugin } from "tdesign-vue-next";
+import { reactive, ref } from 'vue'
+import draggable from 'vuedraggable'
+import { tabsValue, navigations, editTabsValue } from './constants'
+import { NavigationListItem, PropsObject, VPageNode, VTagNode } from '../type'
+import { cloneDeep, keys, pullAt } from 'lodash'
+import { getRandomCode } from '../../util/tools'
+import { DialogPlugin } from 'tdesign-vue-next'
+import EButton from './components/EButton.vue'
 
-import { ProxyAction } from "../../other/index";
+import { ProxyAction } from '../../other/index'
 
 const onClickAction = () => {
-  ProxyAction();
-};
+  ProxyAction()
+}
 
-const currentTab = ref("inter");
-const leftTabsValue = tabsValue;
-const leftData = navigations;
+const currentTab = ref('inter')
+const leftTabsValue = tabsValue
+const leftData = navigations
 
-const editTab = ref("property");
-const rightTabsValue = editTabsValue;
+const editTab = ref('property')
+const rightTabsValue = editTabsValue
 
 // 选中的组件
 const selectData = reactive({
   index: 0,
   node: new VTagNode(),
   props: new PropsObject(),
-});
-const selectPropsValue = reactive<{ [key: string]: any }>({});
+})
+const selectPropsValue = reactive<{ [key: string]: any }>({})
 
 // 初始化页面对象
 const pageNodeModel = ref<VPageNode>({
   id: getRandomCode(),
-  name: "vpage",
+  name: 'vpage',
   children: [],
-});
+})
 
 // 复制组件对象
 const onCloneHandle = (element: NavigationListItem) => {
-  const data: NavigationListItem = cloneDeep(element);
+  const data: NavigationListItem = cloneDeep(element)
   const tagNode: VTagNode = {
     id: getRandomCode(),
     label: data.label,
     type: data.typeName,
     props: data.props,
     children: [],
-  };
-  pageNodeModel.value.children.push(tagNode);
-  selectData.node = tagNode;
-  selectData.index = pageNodeModel.value.children.length - 1;
-  selectData.props = tagNode.props;
-  console.log(selectData.props);
-  findPropsValue();
-};
+  }
+  pageNodeModel.value.children.push(tagNode)
+  selectData.node = tagNode
+  selectData.index = pageNodeModel.value.children.length - 1
+  selectData.props = tagNode.props
+  console.log(selectData.node)
+  findPropsValue()
+}
 // 点击选中的node
 const onClickNode = (index: number, node: VTagNode) => {
-  selectData.index = index;
-  selectData.node = node;
-  selectData.props = node.props;
-  console.log(selectData.props);
-  findPropsValue();
-};
+  selectData.index = index
+  selectData.node = node
+  selectData.props = node.props
+  console.log(selectData.props)
+  findPropsValue()
+}
 const findPropsValue = () => {
   Object.keys(selectData.props).forEach((key) => {
-    selectPropsValue[key] = selectData.props[key].default;
-  });
-  console.log(selectPropsValue.name);
-};
+    selectPropsValue[key] = selectData.props[key].default
+  })
+  console.log(selectPropsValue.name)
+}
 const onSelectClass = (index: number) => {
   if (selectData.index === index) {
-    return "page-node-select";
+    return 'page-node-select'
   }
-  return "";
-};
+  return ''
+}
 
 // 删除vnode
 const deleteTagNode = (index: number) => {
   const dialog = DialogPlugin.confirm({
-    placement: "center",
-    header: "提示",
-    body: "是否删除此组件",
+    placement: 'center',
+    header: '提示',
+    body: '是否删除此组件',
     onCancel: () => {
-      dialog.destroy();
+      dialog.destroy()
     },
     onConfirm: () => {
-      pullAt(pageNodeModel.value.children, index);
-      dialog.destroy();
+      pullAt(pageNodeModel.value.children, index)
+      dialog.destroy()
     },
-  });
-};
+  })
+}
 </script>
 
 <style lang="less" scoped>
