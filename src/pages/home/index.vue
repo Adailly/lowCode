@@ -118,10 +118,10 @@ import { getRandomCode } from '../../util/tools'
 import { DialogPlugin } from 'tdesign-vue-next'
 import EButton from './components/EButton.vue'
 
-import { ProxyAction } from '../../other/index'
+import { CommonAction } from '../../other/index'
 
 const onClickAction = () => {
-  ProxyAction()
+  CommonAction()
 }
 
 const currentTab = ref('inter')
